@@ -36,7 +36,7 @@ public class EmailSender {
 
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(EMAIL_REMETENTE)); // sem nome aqui!
+            message.setFrom(new InternetAddress(EMAIL_REMETENTE));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
             message.setSubject(assunto);
 

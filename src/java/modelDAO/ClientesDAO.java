@@ -6,7 +6,7 @@ import model.Cliente;
 
 public class ClientesDAO {
 
-    // --- MÉTODO DE AUTENTICAÇÃO ---
+    // --- MÉTODO DE AUTENTICAÇÃO (antigo, ainda funciona) ---
     public boolean autenticar(Cliente cli) throws ClassNotFoundException {
         boolean autenticado = false;
         try (Connection conn = ConectaDB.conectar();
@@ -24,6 +24,35 @@ public class ClientesDAO {
             System.out.println("Erro ao autenticar: " + ex.getMessage());
         }
         return autenticado;
+    }
+
+    // --- MÉTODO NOVO: RETORNA O CLIENTE COMPLETO ---
+    public Cliente autenticarRetornandoCliente(String email, String senha) throws ClassNotFoundException {
+        Cliente cli = null;
+
+        try (Connection conn = ConectaDB.conectar();
+             PreparedStatement stmt = conn.prepareStatement(
+                     "SELECT * FROM clientes WHERE email = ? AND senha = ?")) {
+
+            stmt.setString(1, email);
+            stmt.setString(2, senha);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                cli = new Cliente();
+                cli.setId(rs.getInt("id"));
+                cli.setName(rs.getString("name"));
+                cli.setEmail(rs.getString("email"));
+                cli.setSenha(rs.getString("senha"));
+                cli.setCep(rs.getInt("cep"));
+            }
+
+            rs.close();
+
+        } catch (SQLException ex) {
+            System.out.println("Erro ao autenticar (retornando objeto): " + ex.getMessage());
+        }
+        return cli;
     }
 
     // --- MÉTODO DE CADASTRO ---
@@ -46,7 +75,7 @@ public class ClientesDAO {
         return cadastrado;
     }
 
-    // --- MÉTODO DE VERIFICAÇÃO DE E-MAIL (ESQUECI SENHA) ---
+    // --- VERIFICAR SE E-MAIL EXISTE ---
     public boolean emailExiste(String email) throws ClassNotFoundException {
         boolean existe = false;
         try (Connection conn = ConectaDB.conectar();

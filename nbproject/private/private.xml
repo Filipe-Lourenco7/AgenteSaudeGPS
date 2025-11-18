@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/config/ConectaDB.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/model/Cliente.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/modelDAO/ClientesDAO.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/login/login.jsp</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/site/home.jsp</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/Controller/LoginController.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/login/cadastro.jsp</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/Controller/CadastroController.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/index.jsp</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/Controller/CaptchaServlet.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/site/sucesso.jsp</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/login/esqueci-senha.jsp</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/Controller/RecuperarSenhaController.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/src/java/Controller/EmailSender.java</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/imagem/Logo_GPS.png</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/web/home/home.jsp</file>
+            <file>file:/C:/Users/filipe.lourenço.ALMEIDA/Documents/NetBeansProjects/AgenteSaudeGPS/.git/config</file>
+        </group>
+    </open-files>
+</project-private>

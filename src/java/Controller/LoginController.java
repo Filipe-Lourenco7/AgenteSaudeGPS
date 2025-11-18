@@ -23,49 +23,49 @@ public class LoginController extends HttpServlet {
             request.setAttribute("erro", "Captcha incorreto. Tente novamente.");
             RequestDispatcher rd = request.getRequestDispatcher("login/login.jsp");
             rd.forward(request, response);
-            return; // Impede execução do restante
+            return;
         }
-        // --- Fim da verificação do CAPTCHA ---
 
+        // LOGIN
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-
-        Cliente cli = new Cliente();
-        cli.setEmail(email);
-        cli.setSenha(senha);
 
         ClientesDAO dao = new ClientesDAO();
 
         try {
-            if (dao.autenticar(cli)) {
-                // Login válido
-                HttpSession sessao = request.getSession();
-                sessao.setAttribute("usuario", email);
+            // --- PEGA O CLIENTE COMPLETO DO BANCO ---
+            Cliente cli = dao.autenticarRetornandoCliente(email, senha);
 
-                // Verifica se o usuário marcou "Lembrar de mim"
+            if (cli != null) {
+
+                // --- CRIA SESSÃO ---
+                HttpSession sessao = request.getSession();
+                sessao.setAttribute("usuarioLogado", cli);
+                sessao.setAttribute("cepUsuario", String.valueOf(cli.getCep()));
+
+                // OPCIONAL: lembrar login
                 String lembrar = request.getParameter("lembrar");
                 if ("true".equals(lembrar)) {
                     Cookie cookie = new Cookie("usuarioLembrado", email);
-                    cookie.setMaxAge(60 * 60 * 24 * 7); // 7 dias
+                    cookie.setMaxAge(60 * 60 * 24 * 7);
                     cookie.setPath(request.getContextPath());
                     response.addCookie(cookie);
                 } else {
-                    // Apaga cookie anterior (caso exista)
                     Cookie cookie = new Cookie("usuarioLembrado", "");
                     cookie.setMaxAge(0);
                     cookie.setPath(request.getContextPath());
                     response.addCookie(cookie);
                 }
 
+                // --- REDIRECIONA PARA PAINEL ---
                 response.sendRedirect(request.getContextPath() + "/site/home.jsp");
                 return;
 
             } else {
-                // Login inválido
+
                 request.setAttribute("erro", "E-mail ou senha inválidos!");
                 RequestDispatcher rd = request.getRequestDispatcher("login/login.jsp");
                 rd.forward(request, response);
-                return;
             }
 
         } catch (ClassNotFoundException ex) {

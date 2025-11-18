@@ -31,7 +31,7 @@ public class RecuperarSenhaController extends HttpServlet {
                         + "Clique aqui para redefinir sua senha</a></p>"
                         + "<p>Se você não fez este pedido, ignore este e-mail.</p>";
 
-                // 🔥 Chama o EmailSender
+                // Chama o EmailSender
                 System.out.println("🚀 Chamando EmailSender...");
                 EmailSender.enviarEmail(email, assunto, mensagemHtml);
                 System.out.println("📤 EmailSender executado com sucesso!");
